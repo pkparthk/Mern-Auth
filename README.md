@@ -5,7 +5,7 @@ A complete MERN (MongoDB, Express, React, Node.js) stack application featuring J
 
 ## 🎥 Watch the Demo Video
 
-  [Watch the video](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+  [Watch the video](https://vimeo.com/1068247556)
 
 ## Features
 
