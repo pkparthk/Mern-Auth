@@ -2,6 +2,11 @@
 
 A complete MERN (MongoDB, Express, React, Node.js) stack application featuring JWT authentication, SSL implementation, and role-based access control (admin and developer roles).
 
+
+## 🎥 Watch the Demo Video
+
+  [Watch the video](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
 ## Features
 
 - User registration and login with JWT authentication
