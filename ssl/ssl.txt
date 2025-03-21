@@ -1,0 +1,9 @@
+
+# For private key
+openssl genrsa -out key.pem 2048
+
+# For certificate signing request
+openssl req -new -key key.pem -out csr.pem
+
+# For self-signed certificate (valid for 365 days)
+openssl x509 -req -days 365 -in csr.pem -signkey key.pem -out cert.pem
