@@ -47,8 +47,7 @@ const AdminDashboard = () => {
         </ul>
 
         <div className="random-number-section">
-          <h3>Random Number Generator</h3>
-          <p>This feature is only available to admin users</p>
+          <h3>Random Number Generator</h3>        
           <button
             onClick={getRandomNumber}
             className="btn btn-primary"
