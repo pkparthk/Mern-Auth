@@ -20,7 +20,7 @@ A complete MERN (MongoDB, Express, React, Node.js) stack application featuring J
 This authentication system uses JWT-based authentication and enforces SSL for secure communication.  
 
 ## **Why SSL?**  
-SSL/TLS ensures that all user credentials, JWT tokens, and sensitive data are encrypted during transmission, preventing attacks like MITM (Man-in-the-Middle) and data interception.  
+SSL ensures that all user credentials, JWT tokens, and sensitive data are encrypted during transmission, preventing attacks like MITM (Man-in-the-Middle) and data interception.  
 
 ## **Where SSL is Used?**  
 - **Login & Registration**: Encrypts email and password during authentication.  
