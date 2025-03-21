@@ -12,12 +12,33 @@ A complete MERN (MongoDB, Express, React, Node.js) stack application featuring J
 - MongoDB database for data storage
 - React frontend with context API for state management
 - Responsive UI for various screen sizes
+- Here I use the self generated SSL certificates
+
+# Authentication API with SSL/TLS  
+
+## **Overview**  
+This authentication system uses JWT-based authentication and enforces SSL for secure communication.  
+
+## **Why SSL?**  
+SSL/TLS ensures that all user credentials, JWT tokens, and sensitive data are encrypted during transmission, preventing attacks like MITM (Man-in-the-Middle) and data interception.  
+
+## **Where SSL is Used?**  
+- **Login & Registration**: Encrypts email and password during authentication.  
+- **JWT Tokens**: Securely transmits authentication tokens over HTTPS.  
+- **Secure Cookies (if used)**: Ensures cookies are sent over HTTPS only.  
+
+## **Security Best Practices**  
+✅ Enforce HTTPS with **HSTS**  
+✅ Use **Secure & HttpOnly** flags for cookies  
+✅ Regularly update and renew SSL certificates  
+✅ Avoid storing JWTs in local storage  
+
 
 ## Project Structure
 
 ```
 mern-auth-app/
-├── client/                           # React frontend
+├── frontend/                           # React frontend
 │   ├── public/
 │   ├── src/
 │   │   ├── components/
@@ -38,7 +59,7 @@ mern-auth-app/
 │   │   ├── App.js
 │   │   └── index.js
 │   └── package.json
-├── server/                           # Node.js backend
+├── backend/                           # Node.js backend
 │   ├── middleware/
 │   │   └── auth.js
 │   ├── models/
@@ -48,7 +69,7 @@ mern-auth-app/
 │   │   └── users.js
 │   ├── .env
 │   ├── package.json
-│   └── server.js
+│   └── backend.js
 ├── ssl/                              # SSL certificates
 │   ├── cert.pem
 │   ├── csr.pem
@@ -73,10 +94,10 @@ cd mern-auth-app
 
 ### 2. Set up environment variables
 
-Create a `.env` file in the server directory:
+Create a `.env` file in the backend directory:
 
 ```bash
-cd server
+cd backend
 touch .env
 ```
 
@@ -94,38 +115,19 @@ Replace `your_jwt_secret_key_here` with a strong secret key.
 
 ### 3. Generate SSL certificates
 
-For development, generate self-signed SSL certificates:
-
-```bash
-mkdir -p ssl
-cd ssl
-
-# Generate private key
-openssl genrsa -out key.pem 2048
-
-# Generate certificate signing request
-openssl req -new -key key.pem -out csr.pem
-
-# Generate self-signed certificate (valid for 365 days)
-openssl x509 -req -days 365 -in csr.pem -signkey key.pem -out cert.pem
-
-# Return to project root
-cd ..
-```
-
 For production, use certificates from a trusted Certificate Authority like Let's Encrypt.
 
-### 4. Install server dependencies
+### 4. Install backend dependencies
 
 ```bash
-cd server
+cd backend
 npm install
 ```
 
-### 5. Install client dependencies
+### 5. Install frontend dependencies
 
 ```bash
-cd ../client
+cd ../frontend
 npm install
 ```
 
@@ -139,8 +141,8 @@ From the root directory:
 # Start MongoDB (if running locally)
 mongod
 
-# Start both frontend and backend (from server directory)
-cd server
+# Start both frontend and backend (from backend directory)
+cd backend
 npm run dev
 ```
 
@@ -148,11 +150,11 @@ Or start separately:
 
 ```bash
 # Terminal 1 - Start backend
-cd server
-npm run server
+cd backend
+npm run backend
 
 # Terminal 2 - Start frontend
-cd client
+cd frontend
 npm start
 ```
 
@@ -161,14 +163,14 @@ npm start
 For production, build the React frontend:
 
 ```bash
-cd client
+cd frontend
 npm run build
 ```
 
-Then start the server:
+Then start the backend:
 
 ```bash
-cd ../server
+cd ../backend
 npm start
 ```
 
@@ -199,7 +201,7 @@ npm start
 
 1. **JWT Authentication**: Secures API routes and authenticates users
 2. **Password Hashing**: Uses bcrypt to hash passwords before storage
-3. **SSL/HTTPS**: Encrypts data transmission between client and server
+3. **SSL/HTTPS**: Encrypts data transmission between frontend and backend
 4. **Role-Based Authorization**: Controls access based on user roles
 5. **Protected Routes**: Middleware to verify JWT tokens
 6. **HTTP Security Headers**: Uses Helmet middleware to set security headers
