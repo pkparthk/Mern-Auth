@@ -203,3 +203,30 @@ p {
 .not-found p {
   margin: 1.5rem 0;
 }
+
+
+/* Random Number Feature Styling */
+.random-number-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.number-display {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.random-number {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  display: inline-block;
+  min-width: 120px;
+}
