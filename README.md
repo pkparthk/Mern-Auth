@@ -14,7 +14,7 @@ A complete MERN (MongoDB, Express, React, Node.js) stack application featuring J
 - Responsive UI for various screen sizes
 - Here I use the self generated SSL certificates
 
-# Authentication API with SSL/TLS  
+# Authentication API with SSL  
 
 ## **Overview**  
 This authentication system uses JWT-based authentication and enforces SSL for secure communication.  
