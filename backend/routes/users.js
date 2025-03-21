@@ -36,4 +36,23 @@ router.get("/", protect, authorize("admin"), async (req, res) => {
   }
 });
 
+
+router.get("/random", protect, authorize("admin"), async (req, res) => {
+  try {
+    const randomNumber = Math.floor(Math.random() * 1000) + 1;
+
+    res.status(200).json({
+      success: true,
+      data: {
+        number: randomNumber,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+});
+
 module.exports = router;
